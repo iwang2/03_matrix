@@ -15,7 +15,13 @@ int main() {
 
   edges = new_matrix(4, 4);
 
+  /*
   draw_lines(edges, s, c);
   display(s);
+  */
+
+  ident(edges);
+  print_matrix(edges);
+  
   free_matrix( edges );
 }

@@ -12,6 +12,14 @@ Returns:
 print the matrix
 */
 void print_matrix(struct matrix *m) {
+  int r, c;
+  for( c = 0 ; c < m->cols ; c++ ) {
+    printf("| ");
+    for( r = 0 ; r < m->rows ; r++ ) {
+      printf("%f ", m->m[r][c]);
+    }
+    printf("|\n");
+  }
 }
 
 /*-------------- void ident() --------------
@@ -21,6 +29,13 @@ Returns:
 turns m in to an identity matrix
 */
 void ident(struct matrix *m) {
+  int r, c;
+  for(c = 0; c < m->cols; c++) {
+    for(r = 0; r < m->rows; r++) {
+      if ( r == c ) m->m[r][c] = 1.0;
+      else m->m[r][c] = 0.0;
+    }
+  }
 }
 
 
