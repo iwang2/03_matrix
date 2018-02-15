@@ -21,6 +21,16 @@ int main() {
   */
 
   ident(edges);
+  matrix_mult(edges, edges);
+  print_matrix(edges);
+
+  for(int c = 0; c < edges->cols; c++){
+    for(int r = 0; r < edges->rows; r++){
+      edges->m[r][c] = r+c;
+    }
+  }
+
+  matrix_mult(edges, edges);
   print_matrix(edges);
   
   free_matrix( edges );
