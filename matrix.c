@@ -19,6 +19,7 @@ void print_matrix(struct matrix *m) {
     }
     printf("\n");
   }
+  printf("\n");
 }
 
 /*-------------- void ident() --------------
@@ -48,11 +49,11 @@ a*b -> b
 void matrix_mult(struct matrix *a, struct matrix *b) {
   struct matrix * temp = new_matrix(a->rows, b->cols);
   int r, c, mr, mc;
-  for(c = 0; c < a->cols; c++){
-    for(r = 0; r < b->rows; r++){
+  for(c = 0; c < b->cols; c++){
+    for(r = 0; r < a->rows; r++){
       temp->m[r][c] = 0.0;
-      for(mc = c; mc < b->rows; mc++){
-	for(mr = r; mr < a->cols; mr++){
+      for(mc = c; mc < a->rows; mc++){
+	for(mr = r; mr < b->cols; mr++){
 	  temp->m[r][c] += a->m[mr][mc];
 	}
       }

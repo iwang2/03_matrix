@@ -21,6 +21,8 @@ int main() {
   */
 
   ident(edges);
+  print_matrix(edges);
+  
   matrix_mult(edges, edges);
   print_matrix(edges);
 
