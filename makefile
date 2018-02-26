@@ -5,6 +5,7 @@ CC= gcc
 
 all: $(OBJECTS)
 	$(CC) -o main $(OBJECTS) $(LDFLAGS)
+	./main
 
 main.o: main.c display.h draw.h ml6.h matrix.h
 	$(CC) -c main.c
@@ -20,5 +21,7 @@ matrix.o: matrix.c matrix.h
 
 run: main
 	./main
+
 clean:
+	rm main
 	rm *.o *~

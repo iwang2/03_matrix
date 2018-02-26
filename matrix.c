@@ -13,8 +13,8 @@ print the matrix
 */
 void print_matrix(struct matrix *m) {
   int r, c;
-  for( c = 0 ; c < m->cols ; c++ ) {
-    for( r = 0 ; r < m->rows ; r++ ) {
+  for( r = 0; r < m->rows; r++ ) {
+    for( c = 0; c < m->cols; c++ ) {
       printf("%f ", m->m[r][c]);
     }
     printf("\n");
@@ -49,7 +49,7 @@ a*b -> b
 void matrix_mult(struct matrix *a, struct matrix *b) {
   struct matrix * temp = new_matrix(a->rows, b->cols);
   int r, c, n;
-  for(c = 0; c < b->cols; c++){
+  for(c = 0; c < b->lastcol; c++){
     for(r = 0; r < a->rows; r++){
       temp->m[r][c] = 0.0;
       for(n = 0; n < a->rows; n++){
