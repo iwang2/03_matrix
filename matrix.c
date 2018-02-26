@@ -48,18 +48,17 @@ a*b -> b
 */
 void matrix_mult(struct matrix *a, struct matrix *b) {
   struct matrix * temp = new_matrix(a->rows, b->cols);
-  int r, c, mr, mc;
+  int r, c, n;
   for(c = 0; c < b->cols; c++){
     for(r = 0; r < a->rows; r++){
       temp->m[r][c] = 0.0;
-      for(mc = c; mc < a->rows; mc++){
-	for(mr = r; mr < b->cols; mr++){
-	  temp->m[r][c] += a->m[mr][mc];
-	}
+      for(n = 0; n < a->rows; n++){
+	temp->m[r][c] += a->m[n][c] * b->m[r][n];
       }
     }
   }
   copy_matrix(temp, b);
+  free_matrix(temp);
 }
 
 
